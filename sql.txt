@@ -1,0 +1,37 @@
+create table is_done(
+id serial primary key,
+is_done text
+);
+
+
+create table tasks(
+id serial primary key,
+title text,
+description text,
+is_done_id int default 1,
+constraint fk_is_done_id
+	foreign key(is_done_id)
+	references is_done(id)
+);
+
+insert into is_done(
+is_done 
+)values(
+'yes'
+);
+
+
+insert into is_done (
+is_done 
+)values(
+'no'
+);
+
+insert into tasks(
+title ,
+description
+)
+values ( 
+'Trash',
+'Take out the trash.'
+);
